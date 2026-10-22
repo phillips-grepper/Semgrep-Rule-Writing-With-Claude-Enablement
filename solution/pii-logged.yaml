@@ -1,0 +1,31 @@
+rules:
+  - id: pii-logged
+    languages: [kotlin, java]
+    severity: WARNING
+    message: >-
+      PII field '$OBJ.$FIELD' is being passed to a logger call.
+      Sensitive data in logs can be exposed through log aggregation systems,
+      monitoring tools, or log files. Redact or mask PII before logging.
+    metadata:
+      category: security
+      subcategory:
+        - audit
+      technology:
+        - kotlin
+        - java
+      confidence: MEDIUM
+    mode: taint
+    options:
+      symbolic_propagation: true
+    pattern-sources:
+      - patterns:
+          - pattern: $OBJ.$FIELD
+          - metavariable-regex:
+              metavariable: $FIELD
+              regex: (?i)^(password|passwd|pwd|ssn|social|security|credit|card|email|mail|phone|mobile|cell|address|street|zip|birth|dob|account|routing|bank|secret|token|key|private|personal|apikey|apiKey|accesstoken|accessToken|refreshtoken|refreshToken|sessionid|sessionId|userid|userId|customerid|customerId|header|headers|parameter|parameters|creditCard|phoneNumber|customerName|customerAddress|socialSecurity|accountNumber|routingNumber)$
+    pattern-sinks:
+      - patterns:
+          - pattern: $LOGGER.$METHOD(...)
+          - metavariable-regex:
+              metavariable: $METHOD
+              regex: ^(info|warn|error|debug|trace|log|fatal|severe|fine|finer|finest)$

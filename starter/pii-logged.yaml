@@ -1,0 +1,22 @@
+rules:
+  - id: pii-logged
+    message: PII data is being logged. Sensitive fields like email, ssn, password, etc. should not be written to logs.
+    severity: WARNING
+    languages:
+      - kotlin
+      - java
+    mode: taint
+    pattern-sources:
+      - patterns:
+          - pattern: $OBJ.$FIELD
+          - metavariable-regex:
+              metavariable: $FIELD
+              regex: (?i)^(password|ssn|email.*|phone.*|customer(name|address)|account.*|routing.*|token|apikey|secret.*)$
+    pattern-sinks:
+      - patterns:
+          - pattern-either:
+              - pattern: logger.info(...)
+              - pattern: logger.warn(...)
+              - pattern: logger.error(...)
+              - pattern: logger.debug(...)
+              - pattern: logger.trace(...)
