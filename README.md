@@ -1,4 +1,4 @@
-# SE Lab: Writing a Semgrep Rule with the Claude Code `semgrep-rule-creator` Skill
+Writing a Semgrep Rule with the Claude Code `semgrep-rule-creator` Skill
 
 **Time:** 15-20 min
 **Scenario:** A customer wants to detect PII being passed into logger calls in their Kotlin/Java services. They have a list of sensitive field-name keywords (`email`, `ssn`, `password`, `token`, `apiKey`, ...) and want to catch both direct field access (`logger.info(user.email)`) and indirect flows through intermediate variables.
