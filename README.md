@@ -38,10 +38,10 @@ Confirm it's available — at the start of a fresh session you should see `semgr
 
 ---
 
-## Step 2 — Open the lab directory (~1 min)
+## ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Step 2 — Open the lab directory (~1 min)` 
 
 ```bash
-cd labs/pii-in-logs/starter
+cd Semgrep-Rule-Writing-With-Claude-Enablement/starter
 ls
 # PiiLoggingTest.kt
 ```
@@ -55,7 +55,8 @@ This is what test-first rule writing looks like: the test file *is* the spec.
 
 ---
 
-## Step 3 — Drive the skill (~10 min)
+## ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Step 3 — Drive the skill (~10 min)` 
+
 
 Start a Claude Code session in the `starter/` directory and prompt:
 
@@ -89,7 +90,8 @@ If you want to see the iteration loop in action, edit `PiiLoggingTest.kt` to add
 
 ---
 
-## Step 4 — Verify (~2 min)
+## ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Step 4 — Verify (~2 min)`
+
 
 When Claude reports passing tests, run it yourself:
 
@@ -128,7 +130,7 @@ Pick one to extend the rule. Add the test case first, watch it fail, then ask th
 ## Files in this lab
 
 ```
-labs/pii-in-logs/
+Semgrep-Rule-Writing-With-Claude-Enablement/
 ├── README.md                          this file
 ├── starter/
 │   └── PiiLoggingTest.kt              annotated test cases (the "spec")
