@@ -22,7 +22,7 @@ semgrep --version
 
 ---
 
-## Step 1 — Install the skill (~2 min)
+## ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Step 1 — Install the skill (~2 min)`
 
 Inside a Claude Code session, run:
 
