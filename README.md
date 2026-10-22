@@ -1,3 +1,5 @@
+# Semgrep Rule Writing With Claude Enablement Lab
+
 Writing a Semgrep Rule with the Claude Code `semgrep-rule-creator` Skill
 
 **Time:** 15-20 min
